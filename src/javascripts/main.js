@@ -1,4 +1,6 @@
 import '../styles/main.scss';
 import 'bootstrap';
 
-console.error('it worked');
+$('#button').click(() => {
+  console.error('it worked');
+});
