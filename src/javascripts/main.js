@@ -1,6 +1,9 @@
 import '../styles/main.scss';
 import 'bootstrap';
+import auth from "../javascripts/components/auth/auth";
 
-$('#button').click(() => {
-  console.error('it worked');
-});
+const init = () => {
+auth.loginButton();
+};
+
+init();
