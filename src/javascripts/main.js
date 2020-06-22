@@ -7,10 +7,10 @@ import apiKeys from './helpers/apiKeys.json';
 import authData from './helpers/data/authData';
 
 const init = () => {
-firebase.initializeApp(apiKeys.firebaseConfig);
-authData.checkLoginStatus();
-auth.loginButton();
-myNavbar.logoutEvent();
+  firebase.initializeApp(apiKeys.firebaseConfig);
+  authData.checkLoginStatus();
+  auth.loginButton();
+  myNavbar.logoutEvent();
 };
 
 init();

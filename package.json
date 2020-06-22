@@ -4,7 +4,7 @@
   "description": "",
   "main": "src/javascripts/main.js",
   "scripts": {
-    "start": "webpack-dev-server --mode development --open",
+    "start": "webpack-dev-server --mode development --open 'Google Chrome'",
     "build": "webpack --mode production --module-bind js=babel-loader",
     "deploy": "npm run build && firebase deploy"
   },
