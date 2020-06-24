@@ -14,7 +14,7 @@ const buildMycologist = (e) => {
             <div class="card-header">Mycologist ${mycologist.name} (Age: ${mycologist.age})</div>
             <div class="card-body">
             <h3 class="card-title">Mushroom(s) Owned:</h3>
-            `;
+      `;
 
       mycologist.mushrooms.forEach((mushroom) => {
         domString += `<p class="card-text">${mushroom.name}</p>`;
