@@ -5,32 +5,24 @@ import utils from '../utils';
 
 const baseUrl = apiKeys.firebaseConfig.databaseURL;
 
-const getAllMycoShrooms = () => new Promise((resolve, reject) => {
-  axios.get(`${baseUrl}/mycologistMushrooms.json`)
+const getMushrooms = () => new Promise((resolve, reject) => {
+  axios.get(`${baseUrl}/mushrooms.json`)
     .then(({ data }) => resolve(utils.convertFirebaseCollection(data)))
     .catch((err) => reject(err));
 });
 
-const getMycoShroomsByMycoUid = (mycoUid) => new Promise((resolve, reject) => {
-  axios.get(`${baseUrl}/mycologistMushrooms.json?orderBy="mycologistUid"&equalTo="${mycoUid}"`)
-    .then(({ data }) => resolve(utils.convertFirebaseCollection(data)))
-    .catch((err) => reject(err));
-});
+const getMushroomById = (mushroomId) => axios.get(`${baseUrl}/mushrooms/${mushroomId}.json`);
 
-const getMycoShroomsByShroomId = (shroomId) => new Promise((resolve, reject) => {
-  axios.get(`${baseUrl}/mycologistMushrooms.json?orderBy="mushroomId"&equalTo="${shroomId}"`)
-    .then(({ data }) => resolve(utils.convertFirebaseCollection(data)))
-    .catch((err) => reject(err));
-});
+const deleteMushroom = (mushroomId) => axios.delete(`${baseUrl}/mushrooms/${mushroomId}.json`);
 
-const deleteMycoMushroom = (mycoMushroomId) => axios.delete(`${baseUrl}/mycologistMushrooms/${mycoMushroomId}.json`);
+const addMushroom = (newMushroomObj) => axios.post(`${baseUrl}/mushrooms.json`, newMushroomObj);
 
-const addMycologistMushroom = (newMycoMushroomObj) => axios.post(`${baseUrl}/mycologistMushrooms.json`, newMycoMushroomObj);
+const updateMushroom = (mushroomId, editedMushroom) => axios.put(`${baseUrl}/mushrooms/${mushroomId}.json`, editedMushroom);
 
 export default {
-  getAllMycoShrooms,
-  getMycoShroomsByMycoUid,
-  getMycoShroomsByShroomId,
-  deleteMycoMushroom,
-  addMycologistMushroom,
+  getMushrooms,
+  getMushroomById,
+  deleteMushroom,
+  addMushroom,
+  updateMushroom,
 };
